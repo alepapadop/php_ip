@@ -2,7 +2,7 @@
 
 /*
  * @author Alexis Papadopoulos
- * 
+ * MIT Licence
  */
 
 
@@ -81,6 +81,27 @@ function validate_ipv4_address($ipv4)
     return $valid;
 }
 
+
+function validate_subnet_mask($ipv4_mask)
+{
+    $valid=false;
+    
+    $mask_parts=  explode('.', $ipv4_mask);
+    
+    $mask_in_binary_no_dots=  convert_dec_to_8bit_binary($mask_parts[0])
+                                    .convert_dec_to_8bit_binary($mask_parts[1])
+                                    .convert_dec_to_8bit_binary($mask_parts[2])
+                                    .convert_dec_to_8bit_binary($mask_parts[3]);
+        
+    $pattern='/([1]{1,}[0]{0,})(.*)/';
+    
+    if(preg_match($pattern, $mask_in_binary_no_dots ,$parts))
+    {
+        if($parts[2]=='')
+            $valid=true;
+    }
+    return $valid;
+}
 
 #************** FOR INTERNAL USE ****************************
 
