@@ -107,7 +107,6 @@ function validate_subnet_mask($ipv4_mask)
 
 #************** FOR INTERNAL USE ****************************
 
-
 //gets an decimal as input and returns an binary represantation in 8 bit format
 function convert_dec_to_8bit_binary($dec)
 {
