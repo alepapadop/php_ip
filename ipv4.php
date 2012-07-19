@@ -81,6 +81,7 @@ function validate_ipv4_address($ipv4)
     return $valid;
 }
 
+
 //gets an subnet mask in dotted format as input and returns true if the 
 //subnet mask is valid
 function validate_subnet_mask($ipv4_mask)
